@@ -156,6 +156,19 @@ namespace SeleniumTests
             Screenshot("AfterTestGoogleTheme.png");
         }
 
+        [TestMethod]
+        public void TestInvalidURL()
+        {
+            // act - insere url invalida
+            driver.Navigate().GoToUrl("https://www.google.com/invalid-url");
+
+            // assert - verifica se a mensagem de erro existe
+            Assert.IsNotNull(driver.FindElement(By.XPath("/html/body/p[1]/ins")));
+
+            // screenshot
+            Screenshot("testInvalidURL.png");
+        }
+
         private bool IsElementPresent(By by)
         {
             try
