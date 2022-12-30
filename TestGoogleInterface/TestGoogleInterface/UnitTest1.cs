@@ -62,6 +62,14 @@ namespace SeleniumTests
             Assert.AreEqual("", verificationErrors.ToString());
         }
 
+        public void Screenshot(string fileName)
+        {
+            ITakesScreenshot camera = driver as ITakesScreenshot;
+            Screenshot screenshot = camera.GetScreenshot();
+            screenshot.SaveAsFile(fileName);
+        }
+
+
         [TestMethod]
         public void TestOpenPageURL()
         {
@@ -73,9 +81,7 @@ namespace SeleniumTests
             Assert.AreEqual("YouTube", driver.Title);
 
             // screenshot 
-            ITakesScreenshot camera = driver as ITakesScreenshot;
-            Screenshot screenshot = camera.GetScreenshot();
-            screenshot.SaveAsFile($"testPageYoutubeURL.png");
+            Screenshot("testPageYoutubeURL.png");
         }
 
         [TestMethod]
@@ -96,9 +102,7 @@ namespace SeleniumTests
             Assert.AreEqual("MDN Web Docs", driver.Title);
 
             // screenshot
-            ITakesScreenshot camera = driver as ITakesScreenshot;
-            Screenshot screenshot = camera.GetScreenshot();
-            screenshot.SaveAsFile($"testPageMDNClick.png");
+            Screenshot("testPageMDNClick.png");
         }
 
         [TestMethod]
@@ -113,9 +117,7 @@ namespace SeleniumTests
             Assert.IsNotNull(driver.FindElement(By.XPath("//*[@id=\"page-content\"]/section[1]/div/div[2]/h1")));
 
             // screenshot 
-            ITakesScreenshot camera = driver as ITakesScreenshot;
-            Screenshot screenshot = camera.GetScreenshot();
-            screenshot.SaveAsFile($"testClickSobreGoogle.png");
+            Screenshot("testClickSobreGoogle.png");
         }
 
         [TestMethod]
@@ -130,9 +132,7 @@ namespace SeleniumTests
             Assert.IsNotNull(driver.FindElement(By.XPath("//*[@id=\"page-content\"]/section[1]/div/div[1]/div[2]/div/a/button")));
 
             // screenshot 
-            ITakesScreenshot camera = driver as ITakesScreenshot;
-            Screenshot screenshot = camera.GetScreenshot();
-            screenshot.SaveAsFile($"testIcon.png");
+            Screenshot("testIcon.png");
         }
 
         [TestMethod]
@@ -142,9 +142,7 @@ namespace SeleniumTests
             driver.Navigate().GoToUrl("https://www.google.com/?pccc=1");
 
             // screenshot - anter de mudar o tema
-            ITakesScreenshot camera = driver as ITakesScreenshot;
-            Screenshot screenshot = camera.GetScreenshot();
-            screenshot.SaveAsFile($"BeforeTestGoogleTheme.png");
+            Screenshot("BeforeTestGoogleTheme.png");
 
             driver.FindElement(By.XPath("(.//*[normalize-space(text()) and normalize-space(.)='Termos'])[1]/following::div[2]")).Click();
             driver.FindElement(By.XPath("//div[@id='YUIDDb']/div/div")).Click();
@@ -155,9 +153,7 @@ namespace SeleniumTests
             Assert.IsTrue("dark" == atrContent || "origin" == atrContent);
 
             // screenshot - apos mudar o tema
-            camera = driver as ITakesScreenshot;
-            screenshot = camera.GetScreenshot();
-            screenshot.SaveAsFile($"AfterTestGoogleTheme.png");
+            Screenshot("AfterTestGoogleTheme.png");
         }
 
         private bool IsElementPresent(By by)
