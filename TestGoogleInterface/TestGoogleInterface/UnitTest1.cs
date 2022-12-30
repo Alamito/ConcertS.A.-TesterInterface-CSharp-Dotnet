@@ -20,6 +20,8 @@ namespace SeleniumTests
         private static string baseURL;
         private bool acceptNextAlert = true;
 
+        public object TimeUnit { get; private set; }
+
         [ClassInitialize]
         public static void InitializeClass(TestContext testContext)
         {
@@ -138,14 +140,16 @@ namespace SeleniumTests
         [TestMethod]
         public void TestGoogleTheme()
         {
-            // act - troca o tema para dark e armazena o atributo da tag meta (onde fica especificado o tema) na variavel atrContent
+            // act - troca o tema para dark
             driver.Navigate().GoToUrl("https://www.google.com/?pccc=1");
 
-            // screenshot - anter de mudar o tema
-            Screenshot("BeforeTestGoogleTheme.png");
+                // screenshot - anter de mudar o tema
+                Screenshot("BeforeTestGoogleTheme.png");
 
             driver.FindElement(By.XPath("(.//*[normalize-space(text()) and normalize-space(.)='Termos'])[1]/following::div[2]")).Click();
             driver.FindElement(By.XPath("//div[@id='YUIDDb']/div/div")).Click();
+
+            // armazena o atributo da tag meta (onde fica especificado o tema) na variavel atrContent
             IWebElement meta = driver.FindElement(By.XPath("/html/head/meta[2]"));
             String atrContent = meta.GetAttribute("content");
 
@@ -167,6 +171,32 @@ namespace SeleniumTests
 
             // screenshot
             Screenshot("testInvalidURL.png");
+        }
+
+        [TestMethod]
+        public void TestGoogleLens()
+        {
+            // act - envia a url da imagem para o google lens
+            driver.Navigate().GoToUrl("https://www.google.com/");
+            driver.Navigate().GoToUrl("https://www.google.com/");
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(2);
+            driver.FindElement(By.XPath("//img[@alt='Pesquisa com a câmera']")).Click();
+            driver.FindElement(By.XPath("//div[@id='ow6']/div[3]/c-wiz/div[2]/div/div[3]/div[2]/c-wiz/div[2]/input")).Click();
+            driver.Navigate().GoToUrl("https://lens.google.com/upload?hl=pt-BR&re=df&st=1672434425512&ep=gsbubb");
+            driver.Navigate().GoToUrl("https://lens.google.com/search?p=AXAp4wje2gHEz-BXtlFvsjqbZot8AY6gIyEWDRHFECPaAD0L0bK2Ag6-zbjt9S5wqYx-sWsEzlcG1pumMhzR3nEfJ9i8p91h9WqHdZqXpYgJM7_B6mP8lCweLtOmtfXh2UEESsLN9J9sChi1MCNw5t6Bwvi9PuNHs6bjjeqmwqdV9JIKC2ZIONYcW0Hkf1AuQtKrJx11XkkdEPs6LEnYXqexPBnOWFysHTdkWj6BqSe47-bBtMOE8-n4XH8gMzGAF7hrWRkHWb2ueUtA-F89L-ABeQ6Rw8izlNDjmfR1cHrNpv8GL18u9BoNAqxMbbz1tLA%3D&ep=gsbubb&hl=pt-BR&re=df&st=1672434425512");
+            driver.Navigate().GoToUrl("https://lens.google.com/search?p=AXAp4wje2gHEz-BXtlFvsjqbZot8AY6gIyEWDRHFECPaAD0L0bK2Ag6-zbjt9S5wqYx-sWsEzlcG1pumMhzR3nEfJ9i8p91h9WqHdZqXpYgJM7_B6mP8lCweLtOmtfXh2UEESsLN9J9sChi1MCNw5t6Bwvi9PuNHs6bjjeqmwqdV9JIKC2ZIONYcW0Hkf1AuQtKrJx11XkkdEPs6LEnYXqexPBnOWFysHTdkWj6BqSe47-bBtMOE8-n4XH8gMzGAF7hrWRkHWb2ueUtA-F89L-ABeQ6Rw8izlNDjmfR1cHrNpv8GL18u9BoNAqxMbbz1tLA%3D&ep=gsbubb&hl=pt-BR&re=df#lns=W251bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsIkVrY0tKREF5T0RNNFlXRmxMVFk1WkRndE5EWTVNaTFoWldRMExUZzJNalZsWWpRek5UTXlZeElmTURoTmRUTnhRMkp6WlVsUmEwSnFYMDVEVm1OblVERlNlbU5LVGxab1p3PT0iXQ==");
+
+            // armazena o titulo da pagina
+            IWebElement title = driver.FindElement(By.XPath("/html/head/title"));
+            String text = title.GetAttribute("innerHTML");
+
+            // assert - verifica se o titulo da pagina esta coerente
+            Assert.IsTrue("Google Lens" == text);
+
+            //Console.WriteLine(text);
+
+            // screenshot
+            Screenshot("testGoogleLens.png");
         }
 
         private bool IsElementPresent(By by)
