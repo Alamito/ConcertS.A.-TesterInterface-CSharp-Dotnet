@@ -1,5 +1,5 @@
 # 🤖 Testes de Interface da Página de Busca da Google 🤖
-[![NPM](https://img.shields.io/github/license/Alamito/ConcertS.A.-TesterInterface-CSharp-Dotnet)](https://github.com/Alamito/ConcertS.A.-TesterInterface-CSharp-Dotnet/main/LICENCE)
+[![NPM](https://img.shields.io/github/license/Alamito/ConcertS.A.-TesterInterface-CSharp-Dotnet)](https://github.com/Alamito/ConcertS.A.-TesterInterface-CSharp-Dotnet/blob/main/LICENSE)
 
 # 📜 Sobre o projeto 📜
 
