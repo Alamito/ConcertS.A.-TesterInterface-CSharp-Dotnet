@@ -1,4 +1,5 @@
 # 🤖 Testes de Interface da Página de Busca da Google 🤖
+[![NPM](https://img.shields.io/github/license/Alamito/ConcertS.A.-TesterInterface-CSharp-Dotnet)](https://github.com/Alamito/ConcertS.A.-TesterInterface-CSharp-Dotnet/blob/main/LICENCE)
 
 # 📜 Sobre o projeto 📜
 
@@ -19,6 +20,8 @@ Foram realizados ao total sete testes, no qual serão apresentados a seguir:
 
 https://user-images.githubusercontent.com/102616676/210240432-305cb9e1-a05e-4277-bf78-c29cabb68efb.mp4
 
+Também foi implementado uma maneira de realizar uma Screenshot da tela caso o teste venha a ser concluído com sucesso.
+
 # 🧬 Tecnologias utilizadas 🧬
 
 - dotNet (.NET);
@@ -26,11 +29,11 @@ https://user-images.githubusercontent.com/102616676/210240432-305cb9e1-a05e-4277
 - Navegador Chrome;
 - Extensão Katalon para o Chrome.
 
-Para formar os testes foi utilizado a extensão Katalon para gravar os passos de cada um dos setes testes, após foi inspecionado a página do caminho final de cada teste para pegar o XPath único daquela página para assegurar no momento do teste se a automatização chegou no lugar esperado. Por exemplo: no caso do teste de alteração de tema foi utilizado o atributo "content" da segunda tag "meta" do "header" da página, visto que nele continha a informação de que o tema foi alterado de "origin" para "dark".
+Para formar os testes foi utilizado a extensão Katalon para gravar os passos de cada um dos sete testes, após foi inspecionado a página do caminho final de cada teste para pegar o XPath único daquela página para assegurar no momento do teste se a automatização chegou no lugar esperado. Por exemplo: no caso do teste de alteração de tema foi utilizado o atributo "content" da segunda tag "meta" do "header" da página, visto que nele continha a informação de que o tema foi alterado de "origin" para "dark".
 
 # ⚙️ Avaliação da usabilidade da página de buscas da Google ⚙️
 
-A página de buscas da Google possui uma interface clara e objetiva entregando ao usuário uma experiência simples ao utilizar o mecanismo sem muitos rodeios ou complicações. O site também fornece métodos alternativos para inserção de palavras, como a pesquisa por um teclado virtual caso o usuário esteja com problemas no teclado, assim como a pesquisa por voz para usuários com problemas motores por exemplo. Além disso, a página é extremamente eficiente no que tange a velocidade na busca pelo determinado conteúdo, bem como nas sugestões de palavras durante a busca pelo conteúdo no qual é muito efetiva caso o usuário a use como principal mecanismo de busca, visto que a página é inteligente o suficente para entregar sugestões adequadas ao perfil do usuário. Outro aspecto interessante é a busca por imagens que é competente em buscar por similaridades na determinada imagem buscada. Por fim, a página ainda carrega simplicidade ao acesso de outras ferramentas da empresa como na seção de ícones que leva a outras sites, como Gmail, Meet e Drive. Durante os testes não foi encontrado nenhum "bug" ou algo nesse sentido, portanto não há pontos negativos a serem levantados, pois a página de buscas da Google cumpre com excelência a atividade proposta.
+A página de buscas da Google possui uma interface clara e objetiva entregando ao usuário uma experiência simples ao utilizar o mecanismo sem muitos rodeios ou complicações. O site também fornece métodos alternativos para inserção de palavras, como a pesquisa por um teclado virtual caso o usuário esteja com problemas no teclado físico, assim como a pesquisa por voz para usuários com problemas motores por exemplo. Além disso, a página é extremamente eficiente no que tange a velocidade na busca pelo determinado conteúdo, bem como nas sugestões de palavras durante a busca pelo conteúdo no qual é muito efetiva caso o usuário a use como principal mecanismo de busca, visto que a página é inteligente o suficente para entregar sugestões adequadas ao perfil do usuário. Outro aspecto interessante é a busca por imagens que é competente em buscar por similaridades na determinada imagem buscada. Por fim, a página ainda carrega simplicidade ao acesso de outras ferramentas da empresa como na seção de ícones que leva a outras sites, como Gmail, Meet e Drive. Durante os testes não foi encontrado nenhum "bug" ou algo nesse sentido, portanto não há pontos negativos a serem levantados, pois a página de buscas da Google cumpre com excelência a atividade proposta.
 
 # ✍️ Autor ✍️
 Alamir Bobroski Filho 
