@@ -19,6 +19,7 @@ Foram realizados ao total sete testes, no qual serão apresentados a seguir:
 <li><b>Teste de alteração de tema</b>: foi avaliado mudando o tema da página de "claro" para "escuro" (status: ✅).</li>
 </ol>
 </p>
+
 ###  A seguir está representado visualmente os testes automatizados:
 
 https://user-images.githubusercontent.com/102616676/210240432-305cb9e1-a05e-4277-bf78-c29cabb68efb.mp4
